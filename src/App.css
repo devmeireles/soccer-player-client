@@ -1,38 +1,66 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
+
+
+.App,
+html,
+body {
+  background-color: #2f2f34;
+  min-height: 100%;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.secondary-bg {
+  background-color: #2e3138;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+ul {
+  list-style: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+ul > li {
+  font-weight: 300;
 }
 
-.App-link {
-  color: #61dafb;
+.uppercase {
+  text-transform: uppercase;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.fw300 {
+  font-weight: 300 !important;
+}
+
+.fw400 {
+  font-weight: 400 !important;
+}
+
+.fw700 {
+  font-weight: 700 !important;
+}
+
+.fw900 {
+  font-weight: 900 !important;
+}
+
+.custom-card {
+  min-height: 200px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.14);
+  box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.14);
+  padding: 0px 25px 0px 25px;
+}
+
+.custom-card p, li, h1, h2{
+  color: #f6f6f7 !important;
+}
+
+text{
+  fill: rgb(253 253 253) !important
+}
+
+.tooltip-chart {
+  background-color: #f6f6f7;
+  border-radius: 5px;
+  padding: 2px 5px 2px 5px;
+  text-transform: capitalize;
 }
