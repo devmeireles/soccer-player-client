@@ -22,8 +22,7 @@ export default class DashboardPage extends Component {
     loadData = async () => {
         const playerID = this.props.match.params.id;
         this.setState({ loading: true })
-        const req = await axios.get(`http://0.0.0.0:5000/player/stats/${playerID}`);
-        // const req = await axios.get(`http://0.0.0.0:5000/gk`);
+        const req = await axios.get(`${process.env.REACT_APP_API_URL}${playerID}`);
 
         if (req.status === 200) {
             const { data } = req.data
