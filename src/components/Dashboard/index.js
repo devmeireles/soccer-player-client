@@ -10,7 +10,7 @@ const Dashboard = (props) => (
                 <div className="row">
                     <div className="col-12">
                         <div className="d-flex flex-row">
-                            <div className="mr-auto w-50">
+                            <div className="mr-auto">
                                 <CustomCard classes="align-items-start" ycenter>
                                     <PlayerCard
                                         name={props.playerBio.name}
@@ -24,11 +24,30 @@ const Dashboard = (props) => (
                                 </CustomCard>
                             </div>
 
+                            {props.playedClubs &&
+                                <div className="w-25 mx-3">
+                                    <CustomCard
+                                        title="Played Clubs"
+                                        alt={`${props.playedClubs.length} Clubs`}
+                                        classes="align-items-center"
+                                        xcenter
+                                    >
+
+                                        <ul>
+                                            {props.playedClubs.map((value, index) => {
+                                                return <img alt={value.club} src={value.club_badge} />
+                                            })}
+                                        </ul>
+
+                                    </CustomCard>
+                                </div>
+                            }
+
                             {props.currentClub &&
                                 <div className="w-25 mx-3">
                                     <CustomCard
                                         title="Current Team"
-                                        alt={props.currentClub.name}
+                                        alt={props.currentClub.club}
                                         classes="align-items-center"
                                         xcenter
                                     >
@@ -48,7 +67,8 @@ const Dashboard = (props) => (
                                     classes="align-items-center"
                                     xcenter
                                 >
-                                    <Doughnut />
+                                    <h1>{props.playerBio.contract_expires_days}</h1>
+                                    <p className="h6">days to expire</p>
                                 </CustomCard>
                             </div>
                         </div>

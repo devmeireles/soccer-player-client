@@ -36,10 +36,11 @@ export default class DashboardPage extends Component {
     render() {
         const { data } = this.state;
         const playerBio = data.player_bio;
-        const currentClub = [];
+        const currentClub = data.current_club;
         const statsbyClub = data.stats_by_club;
         const statsBySeason = data.stats_by_season;
         const statsByLeague = data.stats_by_league;
+        const playedClubs = data.played_clubs;
 
         return (
             (this.state.loading
@@ -50,6 +51,7 @@ export default class DashboardPage extends Component {
                     statsbyClub={statsbyClub}
                     statsBySeason={statsBySeason}
                     statsByLeague={statsByLeague}
+                    playedClubs={playedClubs}
                 />
             )
         )
