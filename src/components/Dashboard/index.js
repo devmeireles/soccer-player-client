@@ -33,11 +33,15 @@ const Dashboard = (props) => (
                                         xcenter
                                     >
 
-                                        <ul>
+                                        <div className="d-flex flex-row flex-wrap">
                                             {props.playedClubs.map((value, index) => {
-                                                return <img alt={value.club} src={value.club_badge} />
+                                                return (
+                                                    <div className="d-flex px-1">
+                                                        <img alt={value.club} src={value.club_badge} className="img-fluid" style={{maxWidth: 50}} />
+                                                    </div>
+                                                )
                                             })}
-                                        </ul>
+                                        </div>
 
                                     </CustomCard>
                                 </div>
