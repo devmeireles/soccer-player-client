@@ -1,6 +1,6 @@
 import PlayerCard from '../../components/PlayerCard';
 import CustomCard from '../../components/ui/CustomCard';
-import { Bar, Line, Doughnut } from '../../components/ui/Chart';
+import { Bar, Line } from '../../components/ui/Chart';
 
 
 const Dashboard = (props) => (
