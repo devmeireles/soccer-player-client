@@ -1,7 +1,23 @@
 import PlayerCard from '../../components/PlayerCard';
+import PlayedClubs from '../../components/PlayedClubs';
 import CustomCard from '../../components/ui/CustomCard';
 import { Bar, Line } from '../../components/ui/Chart';
+import { Tabs, Tab } from 'react-bootstrap';
+import { BsFillBarChartFill, BsTable } from 'react-icons/all';
 import './style.css';
+import DataTable from '../ui/DataTable';
+
+const statsbyClubHead = {}
+statsbyClubHead.head = ['Club', 'Apps', 'Goals', 'Assists']
+statsbyClubHead.keys = ['club', 'apps', 'goals', 'assists']
+
+const statsbySeasonHead = {}
+statsbySeasonHead.head = ['Season', 'Apps', 'Goals', 'Assists']
+statsbySeasonHead.keys = ['season', 'apps', 'goals', 'assists']
+
+const statsbyLeagueHead = {}
+statsbyLeagueHead.head = ['League', 'Apps', 'Goals', 'Assists']
+statsbyLeagueHead.keys = ['league', 'apps', 'goals', 'assists']
 
 
 const Dashboard = (props) => (
@@ -26,7 +42,7 @@ const Dashboard = (props) => (
                             </div>
 
                             {props.playedClubs &&
-                                <div className="w-sm-100 w-md-25 mx-md-3 flex-fill">
+                                <div className="w-sm-100 w-md-25 flex-fill mx-md-3">
                                     <CustomCard
                                         title="Played Clubs"
                                         alt={`${props.playedClubs.length} Clubs`}
@@ -35,20 +51,14 @@ const Dashboard = (props) => (
                                     >
 
                                         <div className="d-flex flex-row flex-wrap">
-                                            {props.playedClubs.map((value, index) => {
-                                                return (
-                                                    <div className="d-flex px-1">
-                                                        <img alt={value.club} key={value.club} src={value.club_badge} className="img-fluid" style={{maxWidth: 50}} />
-                                                    </div>
-                                                )
-                                            })}
+                                            <PlayedClubs data={props.playedClubs} />
                                         </div>
 
                                     </CustomCard>
                                 </div>
                             }
 
-                            {props.currentClub &&
+                            {props.currentClub.length > 0 &&
                                 <div className="w-sm-100 w-md-25 mx-md-3 flex-fill">
                                     <CustomCard
                                         title="Current Team"
@@ -65,42 +75,49 @@ const Dashboard = (props) => (
                                 </div>
                             }
 
-                            <div className="w-sm-100 w-md-25 flex-fill">
-                                <CustomCard
-                                    title="Contract"
-                                    alt={props.playerBio.contract_expires}
-                                    classes="align-items-center"
-                                    xcenter
-                                >
-                                    <h1>{props.playerBio.contract_expires_days}</h1>
-                                    <p className="h6">days to expire</p>
-                                </CustomCard>
-                            </div>
-                        </div>
-
-                        <div className="d-flex flex-column flex-lg-row my-4">
-                            {props.statsbyClub &&
-                                <div className="flex-fill w-md-50 mr-lg-2">
+                            {props.playerBio.length > 0 &&
+                                <div className="w-sm-100 w-md-25 flex-fill">
                                     <CustomCard
-                                        title="Stats by Club"
-                                        alt={`${props.statsbyClub.length} Clubs`}
+                                        title="Contract"
+                                        alt={props.playerBio.contract_expires}
                                         classes="align-items-center"
                                         xcenter
                                     >
-                                        <Bar data={props.statsbyClub} indexKey={"club"} />
+                                        <h1>{props.playerBio.contract_expires_days}</h1>
+                                        <p className="h6">days to expire</p>
+                                    </CustomCard>
+                                </div>
+                            }
+                        </div>
+
+
+                        <div className="row my-4">
+                            {props.statsbyClub &&
+                                <div className="col-md-6">
+                                    <CustomCard>
+                                        <Tabs defaultActiveKey="chart" className="custom-tab" id="uncontrolled-tab-example">
+                                            <Tab eventKey="chart" title={<BsFillBarChartFill />}>
+                                                <Bar data={props.statsbyClub} indexKey={"club"} />
+                                            </Tab>
+                                            <Tab eventKey="table" title={<BsTable />}>
+                                                <DataTable data={props.statsbyClub} head={statsbyClubHead} />
+                                            </Tab>
+                                        </Tabs>
                                     </CustomCard>
                                 </div>
                             }
 
                             {props.statsBySeason &&
-                                <div className="flex-fill w-md-50 ml-2">
-                                    <CustomCard
-                                        title="Stats by Season"
-                                        alt={`${props.statsBySeason.length} Seasons`}
-                                        classes="align-items-center"
-                                        xcenter
-                                    >
-                                        <Line data={props.statsBySeason} />
+                                <div className="col-md-6">
+                                    <CustomCard>
+                                        <Tabs defaultActiveKey="chart" className="custom-tab" id="uncontrolled-tab-example">
+                                            <Tab eventKey="chart" title={<BsFillBarChartFill />}>
+                                                <Line data={props.statsBySeason} />
+                                            </Tab>
+                                            <Tab eventKey="table" title={<BsTable />}>
+                                                <DataTable data={props.statsBySeason} head={statsbySeasonHead} />
+                                            </Tab>
+                                        </Tabs>
                                     </CustomCard>
                                 </div>
                             }
@@ -109,13 +126,15 @@ const Dashboard = (props) => (
                         <div className="d-flex flex-row my-4">
                             {props.statsByLeague &&
                                 <div className="w-100 ml-2">
-                                    <CustomCard
-                                        title="Stats by League"
-                                        alt={`${props.statsByLeague.length} Leagues`}
-                                        classes="align-items-center"
-                                        xcenter
-                                    >
-                                        <Bar data={props.statsByLeague} indexKey={"league"} />
+                                    <CustomCard>
+                                        <Tabs defaultActiveKey="chart" className="custom-tab" id="uncontrolled-tab-example">
+                                            <Tab eventKey="chart" title={<BsFillBarChartFill />}>
+                                                <Bar data={props.statsByLeague} indexKey={"league"} />
+                                            </Tab>
+                                            <Tab eventKey="table" title={<BsTable />}>
+                                                <DataTable data={props.statsByLeague} head={statsbyLeagueHead} />
+                                            </Tab>
+                                        </Tabs>
                                     </CustomCard>
                                 </div>
                             }

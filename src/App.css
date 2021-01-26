@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
 
-
 .App,
 html,
 body {
@@ -43,19 +42,26 @@ ul > li {
 }
 
 .custom-card {
-  min-height: 200px;
   border-radius: 10px;
   -webkit-box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.14);
   box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.14);
   padding: 0px 25px 0px 25px;
 }
 
-.custom-card p, li, h1, h2, h3, h4, h5, h6{
+.custom-card p,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+table {
   color: #f6f6f7 !important;
 }
 
-text{
-  fill: rgb(253 253 253) !important
+text {
+  fill: rgb(253 253 253) !important;
 }
 
 .tooltip-chart {
@@ -65,9 +71,59 @@ text{
   text-transform: capitalize;
 }
 
+.custom-tab {
+  border: none !important;
+  min-height: 42px;
+}
+
+.custom-tab .nav-link {
+  color: rgb(109, 105, 105) !important;
+}
+
+.custom-tab .nav-link.active {
+  background: none !important;
+  border: none !important;
+  color: #f6f6f7 !important;
+}
+
+.custom-tab .nav-link:hover {
+  border: none !important;
+  color: #f6f6f7 !important;
+}
+
+.tab-content {
+  min-height: 550px;
+}
+
+.DataTable {
+  max-height: 500px;
+  overflow-x: auto;
+}
+
+.tableFixHead {
+  overflow-y: auto;
+  height: 100px;
+}
+.tableFixHead thead th {
+  position: sticky;
+  top: 0;
+}
+
+/* Just common table stuff. Really. */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th,
+td {
+  padding: 8px 16px;
+}
+th {
+  background: #454d55;
+}
+
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
-
   .custom-card {
     margin-top: 7px;
     margin-bottom: 7px;
@@ -111,7 +167,6 @@ text{
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991.98px) {
-
   .w-md-100 {
     width: 100% !important;
   }
@@ -131,7 +186,6 @@ text{
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199.98px) {
-
   .w-lg-100 {
     width: 100% !important;
   }
@@ -147,13 +201,10 @@ text{
   .w-lg-25 {
     width: 25% !important;
   }
-
-
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-
   .w-xl-100 {
     width: 100% !important;
   }
@@ -169,7 +220,6 @@ text{
   .w-xl-25 {
     width: 25% !important;
   }
-
 }
 
 .car-col-2 {
@@ -206,4 +256,38 @@ text{
   -webkit-column-count: 6;
   -moz-column-count: 6;
   column-count: 6;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #000000;
+}
+::-webkit-scrollbar-track {
+  background: #666666;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
 }

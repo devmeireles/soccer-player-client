@@ -30,6 +30,8 @@ export default class DashboardPage extends Component {
                 loading: false,
                 data
             })
+
+            document.title = `Soccer Profile - ${data.player_bio.name}`;
         }
     }
 
