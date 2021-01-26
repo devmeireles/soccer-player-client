@@ -1,6 +1,7 @@
 import PlayerCard from '../../components/PlayerCard';
 import CustomCard from '../../components/ui/CustomCard';
 import { Bar, Line } from '../../components/ui/Chart';
+import './style.css';
 
 
 const Dashboard = (props) => (
@@ -9,8 +10,8 @@ const Dashboard = (props) => (
             <div className="container-fluid pt-5">
                 <div className="row">
                     <div className="col-12">
-                        <div className="d-flex flex-row">
-                            <div className="mr-auto">
+                        <div className="d-flex flex-column flex-lg-row">
+                            <div className="flex-fill">
                                 <CustomCard classes="align-items-start" ycenter>
                                     <PlayerCard
                                         name={props.playerBio.name}
@@ -25,7 +26,7 @@ const Dashboard = (props) => (
                             </div>
 
                             {props.playedClubs &&
-                                <div className="w-25 mx-3">
+                                <div className="w-sm-100 w-md-25 mx-md-3 flex-fill">
                                     <CustomCard
                                         title="Played Clubs"
                                         alt={`${props.playedClubs.length} Clubs`}
@@ -37,7 +38,7 @@ const Dashboard = (props) => (
                                             {props.playedClubs.map((value, index) => {
                                                 return (
                                                     <div className="d-flex px-1">
-                                                        <img alt={value.club} src={value.club_badge} className="img-fluid" style={{maxWidth: 50}} />
+                                                        <img alt={value.club} key={value.club} src={value.club_badge} className="img-fluid" style={{maxWidth: 50}} />
                                                     </div>
                                                 )
                                             })}
@@ -48,7 +49,7 @@ const Dashboard = (props) => (
                             }
 
                             {props.currentClub &&
-                                <div className="w-25 mx-3">
+                                <div className="w-sm-100 w-md-25 mx-md-3 flex-fill">
                                     <CustomCard
                                         title="Current Team"
                                         alt={props.currentClub.club}
@@ -64,7 +65,7 @@ const Dashboard = (props) => (
                                 </div>
                             }
 
-                            <div className="w-25">
+                            <div className="w-sm-100 w-md-25 flex-fill">
                                 <CustomCard
                                     title="Contract"
                                     alt={props.playerBio.contract_expires}
@@ -77,9 +78,9 @@ const Dashboard = (props) => (
                             </div>
                         </div>
 
-                        <div className="d-flex flex-row my-4">
+                        <div className="d-flex flex-column flex-lg-row my-4">
                             {props.statsbyClub &&
-                                <div className="w-50 mr-2">
+                                <div className="flex-fill w-md-50 mr-lg-2">
                                     <CustomCard
                                         title="Stats by Club"
                                         alt={`${props.statsbyClub.length} Clubs`}
@@ -92,7 +93,7 @@ const Dashboard = (props) => (
                             }
 
                             {props.statsBySeason &&
-                                <div className="w-50 ml-2">
+                                <div className="flex-fill w-md-50 ml-2">
                                     <CustomCard
                                         title="Stats by Season"
                                         alt={`${props.statsBySeason.length} Seasons`}

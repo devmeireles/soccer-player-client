@@ -1,6 +1,7 @@
 import { ResponsiveLine } from '@nivo/line'
+import {isMobile} from 'react-device-detect';
 
-function formatData(data) {
+const formatData = (data) => {
 
     let newObject = [
         {
@@ -66,13 +67,13 @@ const theme = {
 const legends = [
     {
         dataFrom: "keys",
-        anchor: "bottom-right",
-        direction: "column",
+        anchor: isMobile ? "top" : "bottom-right",
+        direction: isMobile ? "row" : "column",
         justify: false,
-        translateX: 120,
-        translateY: 0,
+        translateX: isMobile ? 0 : 120,
+        translateY: isMobile ? -50 : 0,
         itemsSpacing: 2,
-        itemWidth: 100,
+        itemWidth: isMobile ? 75 : 100,
         itemHeight: 20,
         itemDirection: "left-to-right",
         itemOpacity: 0.85,
@@ -92,10 +93,18 @@ const legends = [
 const axisBottom = {
     tickSize: 5,
     tickPadding: 5,
-    tickRotation: 40,
+    tickRotation: isMobile ? 90 : 40,
     legendPosition: "middle",
     legendOffset: 32
 };
+
+const margin = () => {
+    if (isMobile) {
+        return { top: 60, right: 5, bottom: 120, left: 5 }
+    }
+
+    return { top: 50, right: 110, bottom: 50, left: 60 }
+}
 
 const formartLabel = (text) => {
     return text.slice(0, -3);
@@ -106,7 +115,7 @@ const Line = (props) => (
         <div style={{ height: 500, width: '100%' }}>
             <ResponsiveLine
                 data={formatData(props.data)}
-                margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+                margin={margin()}
                 xScale={{ type: 'point' }}
                 yScale={{ type: 'linear', min: 'auto', max: 'auto', stacked: true, reverse: false }}
                 pointSize={10}
