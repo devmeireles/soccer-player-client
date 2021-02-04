@@ -44,11 +44,6 @@ const axisBottom = {
     legendOffset: 32
 };
 
-
-const formartLabel = (text) => {
-    return text.slice(0, -3);
-}
-
 const Bar = (props) => (
     <>
         <div style={{ width: '100%', height: 500 }}>

@@ -2,7 +2,7 @@ import React from "react";
 import './style.css';
 import { BsArrowsFullscreen } from 'react-icons/all';
 import CustomModal from '../Modal/';
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 
 
 class CustomCard extends React.Component {
