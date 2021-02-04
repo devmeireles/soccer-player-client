@@ -1,5 +1,5 @@
 import { ResponsiveBar } from '@nivo/bar'
-import {isMobile} from 'react-device-detect';
+import { isMobile } from 'react-device-detect';
 
 
 const margin = () => {
@@ -44,6 +44,11 @@ const axisBottom = {
     legendOffset: 32
 };
 
+
+const formartLabel = (text) => {
+    return text.slice(0, -3);
+}
+
 const Bar = (props) => (
     <>
         <div style={{ width: '100%', height: 500 }}>
@@ -57,6 +62,30 @@ const Bar = (props) => (
                 labelSkipWidth={12}
                 labelSkipHeight={12}
                 axisBottom={axisBottom}
+                tooltip={(input) => {
+                    console.log(input);
+                    const badge = input.data.club_badge || input.data.league_badge;
+                    return (
+                        <div className="tooltip-chart">
+                            <div className="d-flex flex-column align-items-center pa-5">
+                                <div className="d-flex flex-column align-items-center">
+                                    <img src={badge} alt={input.data.club} className="w-50" />
+                                </div>
+                                <div>
+                                    <strong>Apps: </strong> {input.data.apps}
+                                </div>
+
+                                <div>
+                                    <strong>Goals: </strong> {input.data.goals}
+                                </div>
+
+                                <div>
+                                    <strong>Assists: </strong> {input.data.assists}
+                                </div>
+                            </div>
+                        </div>
+                    )
+                }}
             />
         </div>
     </>

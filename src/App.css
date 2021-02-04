@@ -80,6 +80,10 @@ text {
   color: rgb(109, 105, 105) !important;
 }
 
+.nav-tabs .nav-link {
+  border: none !important;
+}
+
 .custom-tab .nav-link.active {
   background: none !important;
   border: none !important;
@@ -120,6 +124,39 @@ td {
 }
 th {
   background: #454d55;
+}
+
+
+.modal-90w {
+  min-width: 90% !important;
+}
+
+.modal-content {
+  background: #2e3138 !important;
+}
+
+.modal-header {
+  border: none !important;
+}
+
+.modal-title {
+  text-align: center;
+  color:#f6f6f7;
+  width: 100%;
+}
+
+button.close {
+  color: #f6f6f7;
+  text-shadow: none !important;
+  opacity: 1;
+}
+
+button.close:hover{
+  color: #FFF;
+}
+
+.fullscreen {
+  cursor: pointer;
 }
 
 /* Extra small devices (portrait phones, less than 576px) */

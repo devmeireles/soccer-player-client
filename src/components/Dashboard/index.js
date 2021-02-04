@@ -8,16 +8,20 @@ import './style.css';
 import DataTable from '../ui/DataTable';
 
 const statsbyClubHead = {}
-statsbyClubHead.head = ['Club', 'Apps', 'Goals', 'Assists']
-statsbyClubHead.keys = ['club', 'apps', 'goals', 'assists']
+statsbyClubHead.head = ['', 'Club', 'Apps', 'Goals', 'Assists']
+statsbyClubHead.keys = ['club_badge', 'club', 'apps', 'goals', 'assists']
 
 const statsbySeasonHead = {}
 statsbySeasonHead.head = ['Season', 'Apps', 'Goals', 'Assists']
 statsbySeasonHead.keys = ['season', 'apps', 'goals', 'assists']
 
 const statsbyLeagueHead = {}
-statsbyLeagueHead.head = ['League', 'Apps', 'Goals', 'Assists']
-statsbyLeagueHead.keys = ['league', 'apps', 'goals', 'assists']
+statsbyLeagueHead.head = ['', 'League', 'Apps', 'Goals', 'Assists']
+statsbyLeagueHead.keys = ['league_badge', 'league', 'apps', 'goals', 'assists']
+
+const handleClick = (e) => {
+    console.log('The link was clicked.');
+}
 
 
 const Dashboard = (props) => (
@@ -94,8 +98,8 @@ const Dashboard = (props) => (
                         <div className="row my-4">
                             {props.statsbyClub &&
                                 <div className="col-md-6">
-                                    <CustomCard>
-                                        <Tabs defaultActiveKey="chart" className="custom-tab" id="uncontrolled-tab-example">
+                                    <CustomCard title="Stats by Club" full>
+                                        <Tabs defaultActiveKey="chart" className="custom-tab" onSelect={handleClick}>
                                             <Tab eventKey="chart" title={<BsFillBarChartFill />}>
                                                 <Bar data={props.statsbyClub} indexKey={"club"} />
                                             </Tab>
@@ -109,7 +113,7 @@ const Dashboard = (props) => (
 
                             {props.statsBySeason &&
                                 <div className="col-md-6">
-                                    <CustomCard>
+                                    <CustomCard title="Stats by Season" full>
                                         <Tabs defaultActiveKey="chart" className="custom-tab" id="uncontrolled-tab-example">
                                             <Tab eventKey="chart" title={<BsFillBarChartFill />}>
                                                 <Line data={props.statsBySeason} />
@@ -126,7 +130,7 @@ const Dashboard = (props) => (
                         <div className="d-flex flex-row my-4">
                             {props.statsByLeague &&
                                 <div className="w-100 ml-2">
-                                    <CustomCard>
+                                    <CustomCard title="Stats by League" full>
                                         <Tabs defaultActiveKey="chart" className="custom-tab" id="uncontrolled-tab-example">
                                             <Tab eventKey="chart" title={<BsFillBarChartFill />}>
                                                 <Bar data={props.statsByLeague} indexKey={"league"} />

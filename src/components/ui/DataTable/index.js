@@ -1,3 +1,5 @@
+import './style.css';
+
 function renderHeader(items) {
     return items.head.map((value) => {
         return (<th>{value}</th>)
@@ -9,6 +11,13 @@ function renderBody(data, keys) {
         return (
             <tr>
                 {keys.map((key, keyIndex) => {
+                    if (key === 'club_badge' || key === 'league_badge') {
+                        return (
+                            <td className="first-column">
+                                <img className="club-badge" src={value.[key]} alt={value.[key]} />
+                            </td>
+                        )
+                    }
                     return (<td>{value.[key]}</td>)
                 })}
             </tr>
@@ -27,16 +36,6 @@ const DataTable = (props) => {
                 </thead>
                 <tbody>
                     {renderBody(props.data, props.head.keys)}
-                    {/* {props.data.map((value, index) => {
-                        return (
-                            <tr>
-                                <td>{value.club}</td>
-                                <td>{value.apps}</td>
-                                <td>{value.goals}</td>
-                                <td>{value.assists}</td>
-                            </tr>
-                        )
-                    })} */}
                 </tbody>
             </table>
         </div>
