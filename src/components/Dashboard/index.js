@@ -6,6 +6,7 @@ import { Tabs, Tab } from 'react-bootstrap';
 import { BsFillBarChartFill, BsTable } from 'react-icons/all';
 import './style.css';
 import DataTable from '../ui/DataTable';
+import SearchBar from '../SearchBar';
 
 const statsbyClubHead = {}
 statsbyClubHead.head = ['', 'Club', 'Apps', 'Goals', 'Assists']
@@ -23,10 +24,12 @@ const handleClick = (e) => {
     console.log('The link was clicked.');
 }
 
-
 const Dashboard = (props) => (
     <>
         <div className="Dashboard">
+            <div className="container-fluid pt-5">
+                <SearchBar />
+            </div>
             <div className="container-fluid pt-5">
                 <div className="row">
                     <div className="col-12">
@@ -62,7 +65,7 @@ const Dashboard = (props) => (
                                 </div>
                             }
 
-                            {props.currentClub.length > 0 &&
+                            {props.currentClub.club &&
                                 <div className="w-sm-100 w-md-25 mx-md-3 flex-fill">
                                     <CustomCard
                                         title="Current Team"
@@ -79,7 +82,7 @@ const Dashboard = (props) => (
                                 </div>
                             }
 
-                            {props.playerBio.length > 0 &&
+                            {/* {props.playerBio.length > 0 &&
                                 <div className="w-sm-100 w-md-25 flex-fill">
                                     <CustomCard
                                         title="Contract"
@@ -91,7 +94,7 @@ const Dashboard = (props) => (
                                         <p className="h6">days to expire</p>
                                     </CustomCard>
                                 </div>
-                            }
+                            } */}
                         </div>
 
 

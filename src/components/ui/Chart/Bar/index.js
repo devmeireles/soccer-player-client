@@ -58,7 +58,6 @@ const Bar = (props) => (
                 labelSkipHeight={12}
                 axisBottom={axisBottom}
                 tooltip={(input) => {
-                    console.log(input);
                     const badge = input.data.club_badge || input.data.league_badge;
                     return (
                         <div className="tooltip-chart">

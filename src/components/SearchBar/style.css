@@ -1,0 +1,73 @@
+.SearchBar {
+  height: 80px;
+  background-color: #2d2d32;
+  box-shadow: 0px 8px 15px 0px rgb(0 0 0 / 14%);
+  z-index: 999;
+  width: 80px;
+  left: 0;
+  top: 0;
+  border-radius: 0px 0px 20px 0px;
+  color: #fff;
+  padding: 20px;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.3s ease-in-out;
+  position: fixed;
+}
+
+.SearchBar.expand {
+  position: fixed;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.search-input.hide {
+  display: none;
+}
+
+.search-input.show {
+  display: block;
+}
+
+input {
+  background: unset !important;
+  border: unset !important;
+  border-bottom: 1px #fff solid !important;
+  border-radius: unset !important;
+  color: #fff !important;
+}
+
+.searchRow {
+  background-color: rgb(45, 46, 47);
+  font-weight: bold;
+  font-size: 18px;
+  border-bottom: 1px solid #AAA;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.searchRow .playerName p{
+  margin: 0 !important;
+}
+
+.searchRow .playerPhoto{
+  max-width: 60px;
+}
+
+.searchRow .playerClub p {
+  font-size: 15px;
+}
+
+.searchRow .playerClub img{
+  max-width: 35px;
+}
+
+@media (max-width: 575.98px) {
+  .SearchBar {
+    width: 20%;
+  }
+  .SearchBar:hover {
+    position: fixed;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
