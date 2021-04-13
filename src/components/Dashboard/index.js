@@ -20,10 +20,6 @@ const statsbyLeagueHead = {}
 statsbyLeagueHead.head = ['', 'League', 'Apps', 'Goals', 'Assists']
 statsbyLeagueHead.keys = ['league_badge', 'league', 'apps', 'goals', 'assists']
 
-const handleClick = (e) => {
-    console.log('The link was clicked.');
-}
-
 const Dashboard = (props) => (
     <>
         <div className="Dashboard">
@@ -102,7 +98,7 @@ const Dashboard = (props) => (
                             {props.statsbyClub &&
                                 <div className="col-md-6">
                                     <CustomCard title="Stats by Club" full>
-                                        <Tabs defaultActiveKey="chart" className="custom-tab" onSelect={handleClick}>
+                                        <Tabs defaultActiveKey="chart" className="custom-tab">
                                             <Tab eventKey="chart" title={<BsFillBarChartFill />}>
                                                 <Bar data={props.statsbyClub} indexKey={"club"} />
                                             </Tab>
