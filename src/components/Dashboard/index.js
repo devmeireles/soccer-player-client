@@ -65,7 +65,7 @@ const Dashboard = (props) => (
                                 <div className="w-sm-100 w-md-25 mx-md-3 flex-fill">
                                     <CustomCard
                                         title="Current Team"
-                                        alt={props.currentClub.club}
+                                        alt={`${props.currentClub.club} until ${props.playerBio.contract_expires}`}
                                         classes="align-items-center"
                                         xcenter
                                     >
@@ -77,20 +77,6 @@ const Dashboard = (props) => (
                                     </CustomCard>
                                 </div>
                             }
-
-                            {/* {props.playerBio.length > 0 &&
-                                <div className="w-sm-100 w-md-25 flex-fill">
-                                    <CustomCard
-                                        title="Contract"
-                                        alt={props.playerBio.contract_expires}
-                                        classes="align-items-center"
-                                        xcenter
-                                    >
-                                        <h1>{props.playerBio.contract_expires_days}</h1>
-                                        <p className="h6">days to expire</p>
-                                    </CustomCard>
-                                </div>
-                            } */}
                         </div>
 
 

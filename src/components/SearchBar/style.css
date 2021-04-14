@@ -37,27 +37,33 @@ input {
 }
 
 .searchRow {
-  background-color: rgb(45, 46, 47);
   font-weight: bold;
-  font-size: 18px;
-  border-bottom: 1px solid #AAA;
-  padding: 5px;
+  font-size: 17px;
   cursor: pointer;
+  min-width: 150px;
 }
 
-.searchRow .playerName p{
+.resultBar {
+  overflow-y: auto;
+  background-color: rgb(53, 53, 53);
+  min-height: 240px;
+}
+
+.searchRow .playerName p {
   margin: 0 !important;
 }
 
-.searchRow .playerPhoto{
-  max-width: 60px;
+.searchRow .playerPhoto img {
+  border-radius: 10px;
+  width: 75px;
+  max-width: 75px;
 }
 
 .searchRow .playerClub p {
   font-size: 15px;
 }
 
-.searchRow .playerClub img{
+.searchRow .playerClub img {
   max-width: 35px;
 }
 

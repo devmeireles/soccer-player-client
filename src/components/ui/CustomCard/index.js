@@ -46,7 +46,9 @@ class CustomCard extends React.Component {
                         {this.props.children}
                     </div>
 
-                    <p className="py-2 text-center">{this.props.alt}</p>
+                    <div>
+                        <p className="py-2 text-center">{this.props.alt}</p>
+                    </div>
                 </div>
 
                 <CustomModal show={this.state.isOpen} onHide={this.closeModal} />
