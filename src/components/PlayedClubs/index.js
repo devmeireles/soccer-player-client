@@ -18,11 +18,12 @@ function PlayedClubs(props) {
                             alt={value.club}
                             key={value.club}
                             src={value.club_badge}
-                            className="img-fluid m-2"
+                            className="img-fluid m-2 overLink"
                             style={{ maxWidth: 50 }}
                             data-toggle="tooltip"
                             data-placement="top"
-                            title="Tooltip on top"
+                            title={value.club}
+                            onClick={() => { window.location.href = `/club/${value.club_id}` }}
                         />
                     </OverlayTrigger>
                 )
