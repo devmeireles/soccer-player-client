@@ -1,5 +1,6 @@
 .HomePage {
   min-height: 100vh;
+  background-color: #969696;
 }
 
 .leagueList {
@@ -8,13 +9,13 @@
 
 .badgeList {
   width: 180px;
-  background-color: #6f6f75;
+  background-color: #FFF;
   border-radius: 5px;
   cursor: pointer;
   box-shadow: 0 8px 15px 0 rgb(0 0 0 / 14%);
   padding: 15px !important;
   font-weight: bold;
-  color: #fff;
+  color: #000;
 }
 
 .badgeList img {
