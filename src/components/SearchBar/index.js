@@ -25,7 +25,7 @@ export default class SearchBar extends Component {
     async handleKeyword(keyword) {
         if (keyword.length > 2) {
             this.setState({ loading: true })
-            const req = await axios.post(`${process.env.REACT_APP_API_URL}/search`, { keyword });
+            const req = await axios.post(`${process.env.REACT_APP_API_URL}/player/search`, { keyword });
 
             if (req.status === 200) {
                 const { data } = req.data
@@ -65,7 +65,7 @@ export default class SearchBar extends Component {
                                     <div
                                         className="d-flex flex-column searchRow pa-2 mt-3 justify-content-center align-items-center"
                                         key={index}
-                                        onClick={() => { window.location.href = item.id }}
+                                        onClick={() => { window.location.href = `/player/${item.id}` }}
                                     >
                                         <div className="playerPhoto">
                                             <img alt={item.name} src={item.profile_image} className="img-fluid" />
